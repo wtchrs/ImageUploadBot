@@ -1,0 +1,32 @@
+spring:
+
+  config:
+    import: optional:file:.env[.properties]
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+
+logging:
+  level:
+    root: info
+    sql: debug
+    org.hibernate.orm.jdbc.bind: trace
+
+discord:
+  bot:
+    token: ${DISCORD_BOT_TOKEN}
+
+image:
+  dir: ${IMAGE_DIR}
